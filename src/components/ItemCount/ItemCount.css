@@ -1,0 +1,24 @@
+/* Buttons */
+
+.btn-count {
+    background: none;
+    border: none;
+    color: #c2a18a;
+  }
+  
+  .btn-count:hover {
+    font-weight: bold;
+  }
+  
+  .btn-add {
+    background: none;
+    color: #c2a18a;
+    border: 1px solid #c2a18a;
+    padding: 0.2rem 0.8rem;
+  }
+  
+  .btn-add:hover {
+    background-color: #c2a18a;
+    color: white;
+  }
+  
