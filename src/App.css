@@ -27,7 +27,32 @@
   line-height: 5rem;
 }
 
+/* Loader */
 
+.loader {
+  position: relative;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: 10rem auto;
+  transform: translate(50%, 50%);
+  border: 0.5rem solid white;
+  border-top: 0.5rem solid #c2a18a;
+  border-radius: 50%;
+  width: 3rem;
+  height: 3rem;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(359deg);
+  }
+}
 
 /* Responsive */
 
@@ -39,7 +64,7 @@
   }
 
   .hero-height {
-    max-height: 100vh;
+    max-height: 80vh;
   }
 
 }  

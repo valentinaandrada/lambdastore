@@ -6,9 +6,9 @@ import Col from 'react-bootstrap/Col'
 function ItemList({items}) {
   return (
     <Row sm={2} lg={3} className="g-3 g-md-4">
-      {items.map((prod) => (
+      {items.map((item) => (
         <Col>
-          <Item key={prod.id} category={prod.category} name={prod.name} price={prod.price} img={prod.img} stock={prod.stock}></Item>
+          <Item key={item.id} item={item}></Item>
         </Col>
       ))}
     </Row>

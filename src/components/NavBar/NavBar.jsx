@@ -7,16 +7,16 @@ import Col from "react-bootstrap/Col";
 
 import { BsHeart } from "react-icons/bs";
 import { CartWidget } from "../CartWidget/CartWidget";
-
+import { Link, NavLink } from "react-router-dom";
 
 const NavBar = () => {
   return (
     <Navbar bg="transparent" expand="lg" fixed="top" className="py-3">
       <Container>
         <Col className="d-flex align-items-center">
-          <Navbar.Brand href="#home" className="fs-1 fw-bold">
-            ⨇
-          </Navbar.Brand>
+          <Link to="/">
+            <Navbar.Brand className="fs-1 fw-bold">⨇</Navbar.Brand>
+          </Link>
           <Col className="d-none d-lg-flex">
             <Nav className="me-auto">
               <Nav.Link href="#home">HOME</Nav.Link>
@@ -25,18 +25,30 @@ const NavBar = () => {
                 <NavDropdown.Header className="w-100">
                   CLOTHING
                 </NavDropdown.Header>
-                <NavDropdown.Item href="#action/3.1">Dresses</NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.2">
-                  T-shirts and Shirts
+                <NavDropdown.Item>
+                  <NavLink to="/categories/dresses">Dresses</NavLink>
                 </NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.3">Sweaters</NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.3">Coats</NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.3">Denim</NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.3">Skirts</NavDropdown.Item>
+                <NavDropdown.Item>
+                  <NavLink to="/categories/t-shirts&shirts">T-shirts and Shirts</NavLink>
+                </NavDropdown.Item>
+                <NavDropdown.Item>
+                  <NavLink to="/categories/sweaters">Sweaters</NavLink>
+                </NavDropdown.Item>
+                <NavDropdown.Item>
+                  <NavLink to="/categories/coats">Coats</NavLink>
+                </NavDropdown.Item>
+                <NavDropdown.Item>
+                  <NavLink to="/categories/denim">Denim</NavLink>
+                </NavDropdown.Item>
+                <NavDropdown.Item>
+                  <NavLink to="/categories/skirts">Skirts</NavLink>
+                </NavDropdown.Item>
                 <NavDropdown.Header>ACCESORIES</NavDropdown.Header>
-                <NavDropdown.Item href="#action/3.1">Earrings</NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.2">
-                  Necklaces
+                <NavDropdown.Item>
+                  <NavLink to="/categories/earrings">Earrings</NavLink>
+                </NavDropdown.Item>
+                <NavDropdown.Item>
+                  <NavLink to="/categories/necklaces">Necklaces</NavLink>
                 </NavDropdown.Item>
               </NavDropdown>
             </Nav>
@@ -110,4 +122,3 @@ const NavBar = () => {
 };
 
 export default NavBar;
-
