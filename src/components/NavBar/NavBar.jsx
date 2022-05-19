@@ -11,44 +11,44 @@ import { Link, NavLink } from "react-router-dom";
 
 const NavBar = () => {
   return (
-    <Navbar bg="transparent" expand="lg" fixed="top" className="py-3">
+    <Navbar expand="lg" fixed="top" bg="transparent" className="py-3">
       <Container>
         <Col className="d-flex align-items-center">
-          <Link to="/">
+          <Link to="/" className='link'>
             <Navbar.Brand className="fs-1 fw-bold">⨇</Navbar.Brand>
           </Link>
           <Col className="d-none d-lg-flex">
             <Nav className="me-auto">
-              <Nav.Link href="#home">HOME</Nav.Link>
-              <Nav.Link href="#link">ABOUT US</Nav.Link>
+              <Nav.Link><NavLink to="/" className='link'>HOME</NavLink></Nav.Link>
+              <Nav.Link><NavLink to="/about" className='link'>ABOUT US</NavLink></Nav.Link>
               <NavDropdown title="SHOP" id="nav-dropdown" menuVariant="light">
                 <NavDropdown.Header className="w-100">
                   CLOTHING
                 </NavDropdown.Header>
                 <NavDropdown.Item>
-                  <NavLink to="/categories/dresses">Dresses</NavLink>
+                  <NavLink to="/category/dresses" className='link'>Dresses</NavLink>
                 </NavDropdown.Item>
                 <NavDropdown.Item>
-                  <NavLink to="/categories/t-shirts&shirts">T-shirts and Shirts</NavLink>
+                  <NavLink to="/category/shirts" className='link'>Shirts</NavLink>
                 </NavDropdown.Item>
                 <NavDropdown.Item>
-                  <NavLink to="/categories/sweaters">Sweaters</NavLink>
+                  <NavLink to="/category/sweaters" className='link'>Sweaters</NavLink>
                 </NavDropdown.Item>
                 <NavDropdown.Item>
-                  <NavLink to="/categories/coats">Coats</NavLink>
+                  <NavLink to="/category/coats" className='link'>Coats</NavLink>
                 </NavDropdown.Item>
                 <NavDropdown.Item>
-                  <NavLink to="/categories/denim">Denim</NavLink>
+                  <NavLink to="/category/denim" className='link'>Denim</NavLink>
                 </NavDropdown.Item>
                 <NavDropdown.Item>
-                  <NavLink to="/categories/skirts">Skirts</NavLink>
+                  <NavLink to="/category/skirts" className='link'>Skirts</NavLink>
                 </NavDropdown.Item>
                 <NavDropdown.Header>ACCESORIES</NavDropdown.Header>
                 <NavDropdown.Item>
-                  <NavLink to="/categories/earrings">Earrings</NavLink>
+                  <NavLink to="/category/earrings" className='link'>Earrings</NavLink>
                 </NavDropdown.Item>
                 <NavDropdown.Item>
-                  <NavLink to="/categories/necklaces">Necklaces</NavLink>
+                  <NavLink to="/category/necklaces" className='link'>Necklaces</NavLink>
                 </NavDropdown.Item>
               </NavDropdown>
             </Nav>
@@ -75,43 +75,37 @@ const NavBar = () => {
         <div className="position-absolute top-100 end-0 bg-light w-100 text-center">
           <Navbar.Collapse id="basic-navbar-nav" className="d-lg-none">
             <Nav className="me-auto d-lg-none">
-              <Nav.Link href="#home">HOME</Nav.Link>
-              <Nav.Link href="#link">ABOUT US</Nav.Link>
-              <NavDropdown title="SHOP" id="basic-nav-dropdown">
-                <div className="text-center">
-                  <div>
-                    <NavDropdown.Header>CLOTHING</NavDropdown.Header>
-                    <NavDropdown.Item href="#action/3.1">
-                      Dresses
-                    </NavDropdown.Item>
-                    <NavDropdown.Item href="#action/3.2">
-                      T-shirts and Shirts
-                    </NavDropdown.Item>
-                    <NavDropdown.Item href="#action/3.3">
-                      Sweaters
-                    </NavDropdown.Item>
-                    <NavDropdown.Item href="#action/3.3">
-                      Coats
-                    </NavDropdown.Item>
-                    <NavDropdown.Item href="#action/3.3">
-                      Denim
-                    </NavDropdown.Item>
-                    <NavDropdown.Item href="#action/3.3">
-                      Skirts
-                    </NavDropdown.Item>
-                  </div>
-                  <div>
-                    <NavDropdown.Header className="mt-2">
-                      ACCESORIES
-                    </NavDropdown.Header>
-                    <NavDropdown.Item href="#action/3.1">
-                      Earrings
-                    </NavDropdown.Item>
-                    <NavDropdown.Item href="#action/3.2">
-                      Necklaces
-                    </NavDropdown.Item>
-                  </div>
-                </div>
+              <Nav.Link><NavLink to="/" className='link'>HOME</NavLink></Nav.Link>
+              <Nav.Link><NavLink to="/about" className='link'>ABOUT US</NavLink></Nav.Link>
+              <NavDropdown title="SHOP" id="nav-dropdown" menuVariant="light">
+                <NavDropdown.Header className="w-100">
+                  CLOTHING
+                </NavDropdown.Header>
+                <NavDropdown.Item>
+                  <NavLink to="/category/dresses" className='link'>Dresses</NavLink>
+                </NavDropdown.Item>
+                <NavDropdown.Item>
+                  <NavLink to="/category/shirts" className='link'>Shirts</NavLink>
+                </NavDropdown.Item>
+                <NavDropdown.Item>
+                  <NavLink to="/category/sweaters" className='link'>Sweaters</NavLink>
+                </NavDropdown.Item>
+                <NavDropdown.Item>
+                  <NavLink to="/category/coats" className='link'>Coats</NavLink>
+                </NavDropdown.Item>
+                <NavDropdown.Item>
+                  <NavLink to="/category/denim" className='link'>Denim</NavLink>
+                </NavDropdown.Item>
+                <NavDropdown.Item>
+                  <NavLink to="/category/skirts" className='link'>Skirts</NavLink>
+                </NavDropdown.Item>
+                <NavDropdown.Header>ACCESORIES</NavDropdown.Header>
+                <NavDropdown.Item>
+                  <NavLink to="/category/earrings" className='link'>Earrings</NavLink>
+                </NavDropdown.Item>
+                <NavDropdown.Item>
+                  <NavLink to="/category/necklaces" className='link'>Necklaces</NavLink>
+                </NavDropdown.Item>
               </NavDropdown>
             </Nav>
           </Navbar.Collapse>

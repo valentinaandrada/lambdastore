@@ -27,6 +27,17 @@
   line-height: 5rem;
 }
 
+/* Links */
+
+.link {
+  text-decoration: none;
+  color: black;
+}
+
+.link:hover {
+  color: grey;
+}
+
 /* Loader */
 
 .loader {

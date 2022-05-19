@@ -1,10 +1,45 @@
+.detail-cont {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 1rem auto;
+}
+
+.img-cont {
+    display: block;
+
+}
+
+.text-cont {
+    margin: 2rem;
+}
+
 .detail-img {
     width: 100%;
+    padding: 0.5rem 2rem;
 }
+
 
 @media screen and (min-width: 768px) {
     
-    .detail-img-cont {
-        width: 50%;
+    .detail-cont{
+        flex-direction: row;
+        padding: 1rem;
+        margin: 0;
     }
+
+    .img-cont {
+        display: block;
+        width: 60%;
+    }
+
+    .detail-img {
+        width: 50%;
+        padding: 0.5rem;
+    }
+
+    .text-cont {
+        width: 25rem;
+    }
+    
 }

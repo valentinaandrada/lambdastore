@@ -17,7 +17,7 @@ function ItemDetailContainer() {
     console.log(item)
     
     return (
-      <div className="detail-container">
+      <div>
       {loader ? (
         <div className="loader"></div>
       ) : (

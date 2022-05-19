@@ -14,7 +14,7 @@ export const ListItemContainer = ({ banner }) => {
   useEffect(() => {
     if(cat) {
       getFetch()
-        .then((resp) => setItems((resp.filter((items)=> items.category === cat))))
+        .then(resp => setItems(resp.filter((items)=> items.category === cat)))
         .catch((err) => console.log(err))
         .finally(() => setLoader(false));
     } else {
@@ -25,7 +25,8 @@ export const ListItemContainer = ({ banner }) => {
     }
   }, [cat]);
 
-  console.log(cat)
+  console.log(items)
+
   
   return (
     <div>
