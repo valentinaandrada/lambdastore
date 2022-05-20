@@ -1,5 +1,10 @@
-![Lambda store preview](/public/assets/img/00_lamddastore.gif)
+# Lambda Store ⨇
+Ecommerce para Lambda Store creado con React.js y Bootstrap. 
+Dependencias utilizadas: React Bootstrap + React Icons.
 
+<p align="center">
+  <img src="/public/assets/img/00_lamddastore.gif" alt="Lambda store preview">
+</p>
 
 # Getting Started with Create React App
 
