@@ -62,9 +62,9 @@ const NavBar = () => {
               className="bg-transparent border-0 border-bottom border-dark rounded-0 text-end me-0 pe-0"
             />
           </Form.Group>
-          <button href="#cart" className="ps-3 border-0 bg-transparent">
+          <button className="ps-3 border-0 bg-transparent">
             <BsHeart color="black" size={25} />
-          </button>{" "}
+          </button>
           <CartWidget />
           <Navbar.Toggle
             id="nav-btn"

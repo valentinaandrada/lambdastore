@@ -25,8 +25,6 @@ export const ListItemContainer = ({ banner }) => {
     }
   }, [cat]);
 
-  console.log(items)
-
   
   return (
     <div>

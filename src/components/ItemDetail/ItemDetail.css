@@ -2,44 +2,39 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin: 1rem auto;
+    margin: 6rem auto;
 }
 
 .img-cont {
     display: block;
-
-}
-
-.text-cont {
-    margin: 2rem;
 }
 
 .detail-img {
     width: 100%;
-    padding: 0.5rem 2rem;
+    padding-bottom: 1rem;
 }
 
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 960px) {
     
     .detail-cont{
         flex-direction: row;
-        padding: 1rem;
-        margin: 0;
+        margin: 7% auto;
     }
 
     .img-cont {
         display: block;
-        width: 60%;
+        width: 70%;
     }
 
     .detail-img {
         width: 50%;
-        padding: 0.5rem;
+        padding: 0 0.5rem;
     }
 
     .text-cont {
-        width: 25rem;
+        width: 30%;
+        padding-left: 1rem;
     }
     
 }

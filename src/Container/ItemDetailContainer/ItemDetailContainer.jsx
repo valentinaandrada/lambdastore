@@ -14,7 +14,6 @@ function ItemDetailContainer() {
         .catch((err) => console.log(err))
         .finally(() => setLoader(false));
     }, [id]);
-    console.log(item)
     
     return (
       <div>

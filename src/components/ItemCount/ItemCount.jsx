@@ -1,7 +1,7 @@
 import { useState } from "react";
 import './ItemCount.css'
 
-const ItemCount = ({ stock, initial, onAdd }) => {
+const ItemCount = ({ stock, initial, onAdd}) => {
   const [quantity, setQuantity] = useState(initial);
 
   const add = () => {
@@ -13,8 +13,7 @@ const ItemCount = ({ stock, initial, onAdd }) => {
   };
 
   const addToCart = () => {
-    onAdd = quantity;
-    alert(`${onAdd} item/s added to your cart succesfully`)
+    onAdd();
   };
 
   return (

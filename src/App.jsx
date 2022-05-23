@@ -12,22 +12,28 @@ function App() {
     <BrowserRouter>
       <div className="App ff-primary">
         <NavBar />
-        <Hero />
+        {/* <Hero /> */}
         <Routes>
           <Route
             path="/"
             element={
-              <ItemListContainer
-                banner={`Hello, welcome to Lambda Store ⨇ !`}
-              />
+              <div>
+                <Hero />
+                <ItemListContainer
+                  banner={`Hello, welcome to Lambda Store ⨇ !`}
+                />
+              </div>
             }
           />
           <Route
             path="/category/:cat"
             element={
-              <ItemListContainer
-                banner={`Hello, welcome to Lambda Store ⨇ !`}
-              />
+              <div>
+                <Hero />
+                <ItemListContainer
+                  banner={`Hello, welcome to Lambda Store ⨇ !`}
+                />
+              </div>
             }
           />
           <Route path="/:category/:id" element={<ItemDetailContainer />} />
