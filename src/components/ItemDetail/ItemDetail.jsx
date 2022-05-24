@@ -1,16 +1,28 @@
 
 import { useState } from "react";
+import { useCartContext } from "../../context/CartContext";
+
 import Buttons from "../Buttons/Buttons";
 import ItemCount from "../ItemCount/ItemCount";
 import "./ItemDetail.css";
 
 function ItemDetail({ item }) {
-
-  const [btnShown, setBtnShown] = useState('count')
   
-  function handleInput() {
-    setBtnShown('buttons')
+  const [btnShown, setBtnShown] = useState('counter')
+
+  const {cartList, addToCart} = useCartContext()
+
+  const handleInput = () => {
+    setBtnShown('buttons')    
   }
+  
+  const onAdd = (quantity) => {
+    console.log(quantity)
+    addToCart({...item, quantity})
+  }
+  
+
+  console.log(cartList)
 
   return (
     <div className="container detail-cont">
@@ -25,7 +37,7 @@ function ItemDetail({ item }) {
         </p>
         <hr />
         <h5 className="f-color text-center">€ {item.price}</h5>
-        {btnShown === 'count' ? <ItemCount stock={item.stock} initial={1} onAdd={handleInput}/> : <Buttons/>}
+        {btnShown === 'counter' ? <ItemCount stock={item.stock} initial={1} onAdd={onAdd} handleInput={handleInput}/> : <Buttons/>}
       </div>
     </div>
   );

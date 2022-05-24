@@ -1,0 +1,10 @@
+.cartItem-img {
+    height: 15rem;
+}
+
+.cartItem-detail {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    line-height: 0.8rem;
+}
