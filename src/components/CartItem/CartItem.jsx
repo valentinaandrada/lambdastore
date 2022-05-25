@@ -7,7 +7,7 @@ function CartItem({ item, quantity}) {
   const { removeItem } = useCartContext();
 
   function deleteItem() {
-    removeItem(item.id)
+    removeItem(item, quantity)
   }
 
   return (

@@ -30,11 +30,16 @@ const CartContextProvider = ({ children }) => {
     updateCart([]);
   }
 
-  function removeItem(id) {
+  function removeItem(item, quantity) {
     const newCart = [...cartList];
-    let index = newCart.findIndex((prod) => prod.id === id);
-    newCart.splice(index, 1);
-    updateCart([...newCart]);
+    let index = newCart.findIndex((prod) => prod.id === item.id);
+    if ( quantity > 1) {
+      item.quantity = quantity -1;
+      updateCart([...newCart]);
+    } else {
+      newCart.splice(index, 1);
+      updateCart([...newCart])
+    }
   }
 
   function updateCart(list) {
