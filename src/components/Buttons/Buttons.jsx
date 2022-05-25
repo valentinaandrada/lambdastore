@@ -8,7 +8,7 @@ function Buttons() {
         <button className="btn-gral btn-color">CONTINUE SHOPPING</button>
       </Link>
       <Link to='/cart' className="link">
-        <button className="btn-gral btn-white">VIEW MY CART</button>
+        <button className="btn-gral btn-white">CHECKOUT</button>
       </Link>
     </div>
   );
