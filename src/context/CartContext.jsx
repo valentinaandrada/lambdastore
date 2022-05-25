@@ -1,54 +1,64 @@
-import { createContext, useContext, useState } from 'react'
+import { createContext, useContext, useState } from "react";
 
 const CartContext = createContext([]);
 
 export const useCartContext = () => useContext(CartContext);
 
-const CartContextProvider = ({children}) => {
+const CartContextProvider = ({ children }) => {
+  const [cartList, setCartList] = useState([]);
+  const [totalItems, setTotalItems] = useState(0);
+  const [totalAmount, setTotalAmount] = useState(0);
 
-  const [cartList, setCartList] = useState([])
-  
   function isInCart(id) {
-    return cartList.some(item => item.id === id);
+    return cartList.some((item) => item.id === id);
   }
-  
+
   function addToCart(item) {
     if (isInCart(item.id)) {
       const newCart = cartList;
-      
-      let i = newCart.findIndex(i => i.id === item.id);
+
+      let i = newCart.findIndex((i) => i.id === item.id);
       newCart[i].quantity += item.quantity;
-        
-      setCartList(newCart)
-      } else {
-        setCartList( [
-          ...cartList,
-          item
-        ] );
-      }
+
+      updateCart(newCart);
+    } else {
+      updateCart([...cartList, item]);
+    }
   }
 
   function clearCart() {
-    setCartList([]);
+    updateCart([]);
   }
 
-  function deleteItem(item) {
-    const newCart = [...cartList]
-    let i = newCart.findIndex(i => i.id === item.id);
-    newCart.splice(i,1);
-    setCartList(newCart);
+  function removeItem(id) {
+    const newCart = [...cartList];
+    let index = newCart.findIndex((prod) => prod.id === id);
+    newCart.splice(index, 1);
+    updateCart([...newCart]);
   }
 
-  return(
-    <CartContext.Provider value={{
-      cartList,
-      addToCart, 
-      clearCart,
-      deleteItem
-    }}>
+  function updateCart(list) {
+    setCartList(list);
+    setTotalItems(list.map((item) => item.quantity).reduce((a, b) => a + b, 0));
+    setTotalAmount(
+      list.map((item) => item.price * item.quantity).reduce((a, b) => a + b, 0)
+    );
+  }
+
+  return (
+    <CartContext.Provider
+      value={{
+        cartList,
+        addToCart,
+        clearCart,
+        removeItem,
+        totalItems,
+        totalAmount,
+      }}
+    >
       {children}
     </CartContext.Provider>
-  )
-}
+  );
+};
 
 export default CartContextProvider;

@@ -5,7 +5,7 @@ import NavBar from "./components/NavBar/NavBar";
 import Hero from "./components/Hero/Hero";
 import ItemListContainer from "./Container/ItemListContainer/ItemListContainer";
 import ItemDetailContainer from "./Container/ItemDetailContainer/ItemDetailContainer";
-import Cart from "./components/Cart/Cart";
+import Cart from "./Container/Cart/Cart";
 import CartContextProvider from "./context/CartContext";
 
 function App() {

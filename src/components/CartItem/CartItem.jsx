@@ -1,25 +1,34 @@
-import React from "react";
 import { Link } from "react-router-dom";
-import './CartItem.css'
+import { useCartContext } from "../../context/CartContext";
+import "./CartItem.css";
 
-function CartItem({ item, quantity, del}) {
+function CartItem({ item, quantity}) {
 
+  const { removeItem } = useCartContext();
+
+  function deleteItem() {
+    removeItem(item.id)
+  }
 
   return (
-    <div className="container d-flex ps-0 pb-3">
-        <Link to={`/${item.category}/${item.id}`}>
-      <img src={item.img} alt="" className="cartItem-img me-3" />
-        </Link>
-      <div className="cartItem-detail">
-          <div>
-
-        <h4 className="ff-secondary">{item.name}</h4>
-        <p className="ff-secondary">{item.id}</p>
-          </div>
+    <div className="container d-flex ps-0 pb-4">
+      <Link to={`/${item.category}/${item.id}`}>
+        <img src={item.img} alt="" className="cartItem-img me-3" />
+      </Link>
+      <div className="cartItem-detail ff-secondary">
         <div>
-        <p className="ff-secondary">Unit price: <span className="f-color fs-5">€ {item.price}</span></p>
-        <p className="ff-secondary">Quantity: {quantity}</p>
-      <button className='bg-transparent text-secondary border-0' onClick={del}>Delete</button>
+          <h5 className="ff-primary fw-bold">{item.name}</h5>
+          <p>REF-{item.id}</p>
+        </div>
+        <div>
+          <p>{quantity > 1 && `${item.quantity} X ${item.price} EUR`}</p>
+          <p>{item.price * quantity} EUR</p>
+          <button
+            className="bg-transparent text-secondary border-0 mt-4"
+            onClick={deleteItem}
+          >
+            Delete
+          </button>
         </div>
       </div>
     </div>

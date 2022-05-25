@@ -22,6 +22,10 @@
   color: #c2a18a;
 }
 
+.f-smaller {
+  font-size: 0.8rem;
+}
+
 .hero-title {
   font-size: 5rem;
   line-height: 5rem;
@@ -38,6 +42,30 @@
   color: grey;
 }
 
+/* Buttons */
+
+.btn-gral {
+  width: 100%;
+  margin: 1rem auto;
+  display: block;
+}
+
+.btn-color, 
+.btn-white:hover {
+  background-color: #c2a18a;
+  border: 1px solid #c2a18a;
+  color: white;
+  padding: 0.2rem 0.8rem;
+}
+
+
+.btn-white,
+.btn-color:hover {
+  background: none;
+  border: 1px solid #c2a18a;
+  color: #c2a18a;
+  padding: 0.2rem 0.8rem;
+}
 
 /* Loader */
 

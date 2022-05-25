@@ -10,19 +10,15 @@ function ItemDetail({ item }) {
   
   const [btnShown, setBtnShown] = useState('counter')
 
-  const {cartList, addToCart} = useCartContext()
+  const {addToCart} = useCartContext()
 
   const handleInput = () => {
     setBtnShown('buttons')    
   }
   
   const onAdd = (quantity) => {
-    console.log(quantity)
     addToCart({...item, quantity})
   }
-  
-
-  console.log(cartList)
 
   return (
     <div className="container detail-cont">
