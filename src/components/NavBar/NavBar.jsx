@@ -1,15 +1,19 @@
+// React
+import { Link, NavLink } from "react-router-dom";
+// Components
+import { CartWidget } from "../CartWidget/CartWidget";
+
+// Styles
 import Navbar from "react-bootstrap/Navbar";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import Form from "react-bootstrap/Form";
 import Col from "react-bootstrap/Col";
-
 import { BsHeart } from "react-icons/bs";
-import { CartWidget } from "../CartWidget/CartWidget";
-import { Link, NavLink } from "react-router-dom";
 
 const NavBar = () => {
+
   return (
     <Navbar expand="lg" fixed="top" bg="transparent" className="py-3">
       <Container>

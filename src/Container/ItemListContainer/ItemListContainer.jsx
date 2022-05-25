@@ -1,10 +1,11 @@
-import "./ItemListContainer.css";
-import ItemList from "../../components/ItemList/ItemList";
-
+// React
 import { useEffect, useState } from "react";
 import { getFetch } from "../../helpers/getFetch";
 import { useParams } from "react-router-dom";
-
+// Components
+import ItemList from "../../components/ItemList/ItemList";
+// Styles
+import "./ItemListContainer.css";
 
 export const ListItemContainer = ({ banner }) => {
   const [items, setItems] = useState([]);

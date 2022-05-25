@@ -1,6 +1,9 @@
+// React
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom";
+// Components
 import ItemDetail from "../../components/ItemDetail/ItemDetail";
+// Helpers
 import { getFetch } from "../../helpers/getFetch";
 
 function ItemDetailContainer() {

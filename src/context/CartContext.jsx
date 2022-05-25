@@ -16,10 +16,8 @@ const CartContextProvider = ({ children }) => {
   function addToCart(item) {
     if (isInCart(item.id)) {
       const newCart = cartList;
-
-      let i = newCart.findIndex((i) => i.id === item.id);
+      let i = newCart.findIndex((prod) => prod.id === item.id);
       newCart[i].quantity += item.quantity;
-
       updateCart(newCart);
     } else {
       updateCart([...cartList, item]);
@@ -32,21 +30,21 @@ const CartContextProvider = ({ children }) => {
 
   function removeItem(item, quantity) {
     const newCart = [...cartList];
-    let index = newCart.findIndex((prod) => prod.id === item.id);
+    let i = newCart.findIndex((prod) => prod.id === item.id);
     if ( quantity > 1) {
-      item.quantity = quantity -1;
+      item.quantity = quantity-1;
       updateCart([...newCart]);
     } else {
-      newCart.splice(index, 1);
+      newCart.splice(i, 1);
       updateCart([...newCart])
     }
   }
 
   function updateCart(list) {
     setCartList(list);
-    setTotalItems(list.map((item) => item.quantity).reduce((a, b) => a + b, 0));
+    setTotalItems(list.reduce((counter, item) => counter += item.quantity, 0));
     setTotalAmount(
-      list.map((item) => item.price * item.quantity).reduce((a, b) => a + b, 0)
+      list.reduce((counter, item) => counter + (item.price*item.quantity), 0)
     );
   }
 

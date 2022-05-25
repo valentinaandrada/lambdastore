@@ -1,7 +1,9 @@
+// React
 import { useState } from "react";
-import './ItemCount.css'
+// Styles
+import "./ItemCount.css";
 
-const ItemCount = ({stock, initial, onAdd, handleInput}) => {
+const ItemCount = ({ stock, initial, onAdd, handleInput }) => {
   const [quantity, setQuantity] = useState(initial);
 
   const add = () => {
@@ -15,9 +17,7 @@ const ItemCount = ({stock, initial, onAdd, handleInput}) => {
   const addToCart = () => {
     onAdd(quantity);
     handleInput();
-  }
-
-
+  };
 
   return (
     <div className="d-flex justify-content-center align-items-center py-2 f-color">

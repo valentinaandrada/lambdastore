@@ -1,14 +1,13 @@
+// React
 import { Link } from "react-router-dom";
+// Context
 import { useCartContext } from "../../context/CartContext";
+// Styles
 import "./CartItem.css";
 
 function CartItem({ item, quantity}) {
 
   const { removeItem } = useCartContext();
-
-  function deleteItem() {
-    removeItem(item, quantity)
-  }
 
   return (
     <div className="container d-flex ps-0 pb-4">
@@ -25,9 +24,9 @@ function CartItem({ item, quantity}) {
           <p>{item.price * quantity} EUR</p>
           <button
             className="bg-transparent text-secondary border-0 mt-4"
-            onClick={deleteItem}
+            onClick={()=> removeItem(item, quantity)}
           >
-            Delete
+            Remove
           </button>
         </div>
       </div>

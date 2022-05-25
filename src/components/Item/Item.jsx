@@ -1,7 +1,7 @@
-import Card from "react-bootstrap/Card";
+// React
 import { Link } from "react-router-dom";
-
-import ItemCount from "../ItemCount/ItemCount";
+// Styles
+import Card from "react-bootstrap/Card";
 
 const Item = ({item}) => {
 

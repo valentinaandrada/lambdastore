@@ -1,9 +1,10 @@
-
+// React
 import { useState } from "react";
 import { useCartContext } from "../../context/CartContext";
-
+// Components
 import Buttons from "../Buttons/Buttons";
 import ItemCount from "../ItemCount/ItemCount";
+// Styles
 import "./ItemDetail.css";
 
 function ItemDetail({ item }) {
@@ -29,7 +30,7 @@ function ItemDetail({ item }) {
       <div className="text-cont">
         <h2 className="card-title ff-secondary">{item.name}</h2>
         <p className="ff-secondary">
-          {item.category}-{item.id}
+          REF-{item.id}
         </p>
         <hr />
         <h5 className="f-color text-center">€ {item.price}</h5>
