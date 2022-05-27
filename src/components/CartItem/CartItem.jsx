@@ -16,12 +16,12 @@ function CartItem({ item, quantity}) {
       </Link>
       <div className="cartItem-detail ff-secondary">
         <div>
-          <h5 className="ff-primary fw-bold">{item.name}</h5>
-          <p>REF-{item.id}</p>
+          <h5 className="ff-primary text-uppercase">{item.name}</h5>
+          <p>REF-{item.ref}</p>
         </div>
         <div>
           <p>{quantity > 1 && `${item.quantity} X ${item.price} EUR`}</p>
-          <p>{item.price * quantity} EUR</p>
+          <p>{(item.price * quantity).toFixed(2)} EUR</p>
           <button
             className="bg-transparent text-secondary border-0 mt-4"
             onClick={()=> removeItem(item, quantity)}

@@ -1,38 +1,51 @@
 // React
 import { useEffect, useState } from "react";
-import { getFetch } from "../../helpers/getFetch";
 import { useParams } from "react-router-dom";
+// Firebase
+import {
+  getFirestore,
+  collection,
+  getDocs,
+  query,
+  where,
+} from "firebase/firestore";
 // Components
 import ItemList from "../../components/ItemList/ItemList";
 // Styles
 import "./ItemListContainer.css";
 
-export const ListItemContainer = ({ banner }) => {
+export const ListItemContainer = () => {
   const [items, setItems] = useState([]);
   const [loader, setLoader] = useState(true);
-  const {cat} = useParams()
+  const { cat } = useParams();
 
   useEffect(() => {
-    if(cat) {
-      getFetch()
-        .then(resp => setItems(resp.filter((items)=> items.category === cat)))
-        .catch((err) => console.log(err))
-        .finally(() => setLoader(false));
+    const db = getFirestore();
+    const queryCollection = collection(db, "products");
+
+    if (cat) {
+        const queryCollectionFilterByCategory = query(
+          queryCollection,
+          where("category", "==", cat)
+        );
+        getDocs(queryCollectionFilterByCategory)
+          .then((resp) =>
+            setItems(resp.docs.map((item) => ({ id: item.id, ...item.data() })))
+          )
+          .catch((err) => console.log(err))
+          .finally(() => setLoader(false));
     } else {
-      getFetch()
-      .then((resp) => setItems(resp))
-      .catch((err) => console.log(err))
-      .finally(() => setLoader(false));
+        getDocs(queryCollection)
+          .then((resp) =>
+            setItems(resp.docs.map((item) => ({ id: item.id, ...item.data() })))
+          )
+          .catch((err) => console.log(err))
+          .finally(() => setLoader(false));
     }
   }, [cat]);
 
-  
   return (
-    <div>
-      <p className="banner f-color text-center">
-        {banner}
-        <span className="txt-anim"></span>
-      </p>
+
       <div className="section-container">
         {loader ? (
           <div className="loader"></div>
@@ -40,7 +53,7 @@ export const ListItemContainer = ({ banner }) => {
           <ItemList items={items}></ItemList>
         )}
       </div>
-    </div>
+
   );
 };
 

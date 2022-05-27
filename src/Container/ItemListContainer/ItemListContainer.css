@@ -11,29 +11,6 @@
   }
 }
 
-/* Banner */
 
-.banner {
-  font-size: 1.5rem;
-  margin-top: 2rem;
-}
-
-.txt-anim {
-    position: absolute;
-    right: 0;
-    width: 100;
-    height: 2.5rem;
-    background-color: #fff;
-    animation: writing 10s infinite;
-  }
-  
-  @keyframes writing {
-    from {
-      width: 100%;
-    }
-    to {
-      width: 0%;
-    }
-  }
   
   

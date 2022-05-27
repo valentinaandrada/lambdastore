@@ -16,8 +16,8 @@ const CartContextProvider = ({ children }) => {
   function addToCart(item) {
     if (isInCart(item.id)) {
       const newCart = cartList;
-      let i = newCart.findIndex((prod) => prod.id === item.id);
-      newCart[i].quantity += item.quantity;
+      let index = newCart.findIndex((prod) => prod.id === item.id);
+      newCart[index].quantity += item.quantity;
       updateCart(newCart);
     } else {
       updateCart([...cartList, item]);
@@ -31,7 +31,7 @@ const CartContextProvider = ({ children }) => {
   function removeItem(item, quantity) {
     const newCart = [...cartList];
     let i = newCart.findIndex((prod) => prod.id === item.id);
-    if ( quantity > 1) {
+    if ( quantity > 1 && quantity) {
       item.quantity = quantity-1;
       updateCart([...newCart]);
     } else {
@@ -48,6 +48,7 @@ const CartContextProvider = ({ children }) => {
     );
   }
 
+
   return (
     <CartContext.Provider
       value={{
@@ -56,7 +57,7 @@ const CartContextProvider = ({ children }) => {
         clearCart,
         removeItem,
         totalItems,
-        totalAmount,
+        totalAmount
       }}
     >
       {children}

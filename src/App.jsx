@@ -7,24 +7,26 @@ import ItemListContainer from "./Container/ItemListContainer/ItemListContainer";
 import ItemDetailContainer from "./Container/ItemDetailContainer/ItemDetailContainer";
 import Cart from "./Container/Cart/Cart";
 import CartContextProvider from "./context/CartContext";
+import Footer from "./components/Footer/Footer";
+import Banner from "./components/Banner/Banner";
 
 function App() {
-
   return (
     <BrowserRouter>
       <CartContextProvider>
         <div className="App ff-primary">
+          <Banner
+            message={`Welcome to LAMBDA store! Free delivery from 40 EUR - Returns extended to 60 days`}
+          />
           <NavBar />
-          {/* <Hero /> */}
           <Routes>
             <Route
               path="/"
               element={
                 <div>
                   <Hero />
-                  <ItemListContainer
-                    banner={`Hello, welcome to Lambda Store ⨇ !`}
-                  />
+                  <ItemListContainer />
+                  <Footer />
                 </div>
               }
             />
@@ -33,13 +35,20 @@ function App() {
               element={
                 <div>
                   <Hero />
-                  <ItemListContainer
-                    banner={`Hello, welcome to Lambda Store ⨇ !`}
-                  />
+                  <ItemListContainer />
+                  <Footer />
                 </div>
               }
             />
-            <Route path="/:category/:id" element={<ItemDetailContainer />} />
+            <Route
+              path="/:category/:id"
+              element={
+                <div>
+                  <ItemDetailContainer />
+                  <Footer />
+                </div>
+              }
+            />
             <Route path="/cart" element={<Cart />} />
             <Route path="/*" element={<Navigate to="/" replace />} />
           </Routes>

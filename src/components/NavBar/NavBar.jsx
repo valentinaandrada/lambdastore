@@ -15,7 +15,7 @@ import { BsHeart } from "react-icons/bs";
 const NavBar = () => {
 
   return (
-    <Navbar expand="lg" fixed="top" bg="transparent" className="py-3">
+    <Navbar expand="lg" fixed="top" className="py-3 mt-3">
       <Container>
         <Col className="d-flex align-items-center">
           <Link to="/" className='link'>

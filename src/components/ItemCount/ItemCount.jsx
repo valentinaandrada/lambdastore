@@ -3,11 +3,11 @@ import { useState } from "react";
 // Styles
 import "./ItemCount.css";
 
-const ItemCount = ({ stock, initial, onAdd, handleInput }) => {
+const ItemCount = ({ stock, initial, onAdd}) => {
   const [quantity, setQuantity] = useState(initial);
 
   const add = () => {
-    quantity < stock ? setQuantity(quantity + 1) : alert("Out of stock");
+    quantity < stock && setQuantity(quantity + 1);
   };
 
   const substract = () => {
@@ -16,7 +16,6 @@ const ItemCount = ({ stock, initial, onAdd, handleInput }) => {
 
   const addToCart = () => {
     onAdd(quantity);
-    handleInput();
   };
 
   return (

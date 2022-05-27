@@ -12,13 +12,10 @@ function ItemDetail({ item }) {
   const [btnShown, setBtnShown] = useState('counter')
 
   const {addToCart} = useCartContext()
-
-  const handleInput = () => {
-    setBtnShown('buttons')    
-  }
   
   const onAdd = (quantity) => {
-    addToCart({...item, quantity})
+      addToCart({...item, quantity}) 
+      setBtnShown('buttons')
   }
 
   return (
@@ -28,13 +25,15 @@ function ItemDetail({ item }) {
         <img src={item.img2} alt="" className="detail-img" />
       </div>
       <div className="text-cont">
-        <h2 className="card-title ff-secondary">{item.name}</h2>
+        <h3 className="card-title ff-primary text-uppercase">{item.name}</h3>
         <p className="ff-secondary">
-          REF-{item.id}
+          REF-{item.ref}
         </p>
+        <p className="f-smaller mt-5 ff-secondary">{item.description}</p>
+        <p className="f-smaller ff-secondary">Color: <span className="text-uppercase">{item.color}</span></p>
         <hr />
         <h5 className="f-color text-center">€ {item.price}</h5>
-        {btnShown === 'counter' ? <ItemCount stock={item.stock} initial={1} onAdd={onAdd} handleInput={handleInput}/> : <Buttons/>}
+        { btnShown === 'counter' ? <ItemCount stock={item.stock} initial={1} onAdd={onAdd}/> : <Buttons/>}
       </div>
     </div>
   );
