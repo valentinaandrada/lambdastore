@@ -1,12 +1,14 @@
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import NavBar from "./components/NavBar/NavBar";
-import Hero from "./components/Hero/Hero";
+import CartContextProvider from "./context/CartContext";
+
 import ItemListContainer from "./Container/ItemListContainer/ItemListContainer";
 import ItemDetailContainer from "./Container/ItemDetailContainer/ItemDetailContainer";
-import Cart from "./Container/Cart/Cart";
-import CartContextProvider from "./context/CartContext";
+import CartContainer from "./Container/CartContainer/CartContainer";
+import NavBar from "./components/NavBar/NavBar";
+import Hero from "./components/Hero/Hero";
 import Footer from "./components/Footer/Footer";
 import Banner from "./components/Banner/Banner";
 
@@ -49,7 +51,7 @@ function App() {
                 </div>
               }
             />
-            <Route path="/cart" element={<Cart />} />
+            <Route path="/cart" element={<CartContainer />} />
             <Route path="/*" element={<Navigate to="/" replace />} />
           </Routes>
         </div>
