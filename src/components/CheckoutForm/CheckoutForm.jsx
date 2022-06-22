@@ -4,47 +4,65 @@ import Form from "react-bootstrap/Form";
 import FloatingLabel from "react-bootstrap/FloatingLabel";
 
 function CheckoutForm({ sendOrder }) {
-  const [validated, setValidated] = useState(false);
   const [customer, setCustomer] = useState({});
+  const [errors, setErrors] = useState({});
+  const [form, setForm] = useState({});
 
-  const handleInputChange = (e) => {
-    console.log(e.target.name);
-    console.log(e.target.value);
-    if (e.target.value.length > 3) {
+  const handleInputChange = (field, value) => {
+    setForm({
+      ...form,
+      [field]: value,
+    });
+
+    if (!!errors[field]) {
+      setErrors({
+        ...errors,
+        [field]: null,
+      });
+    } else {
       setCustomer({
         ...customer,
-        [e.target.name]: e.target.value,
+        [field]: value,
       });
     }
-    console.log(customer);
   };
 
-  function manageData() {
-    if (customer.name && customer.phone && customer.email) {
+  const validateForm = () => {
+    const { name, phone, email, email2 } = form;
+    const newErrors = {};
+
+    if (!name || name === "") newErrors.name = "Please enter your name";
+    else if (name.length < 3) newErrors.name = "Please enter a valid name";
+
+    if (!phone || phone === "") newErrors.phone = "Please enter your phone";
+    else if (phone.length < 9 || !/^[0-9\b]+$/.test(phone))
+      newErrors.phone = "Please enter a 9 digit phone number";
+
+    if (!email || email === "") newErrors.email = "Please enter your email";
+    else if (email.length < 3 || !/\S+@\S+\.\S+/.test(email))
+      newErrors.email = "Please enter a valid email address";
+
+    if (!email2 || email2 === "") newErrors.email2 = "Please enter your email2";
+    else if (email2 !== email) newErrors.email2 = "Email addresses must match";
+
+    return newErrors;
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const formErrors = validateForm();
+    if (Object.keys(formErrors).length > 0) {
+      setErrors(formErrors);
+    } else {
       sendOrder(customer);
     }
-  }
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const form = event.currentTarget;
-    if (form.checkValidity() === false) {
-      event.stopPropagation();
-    }
-
-    setValidated(true);
-    manageData();
   };
 
   return (
     <div className="pt-2">
-      <Form
-        noValidate
-        validated={validated}
-        className="mt-4"
-        onSubmit={handleSubmit}
-      >
-        <Form.Group className="mb-3" controlId="formBasicEmail">
+      <Form className="mt-4">
+        <Form.Group className="mb-3" controlId="name">
           <FloatingLabel
             controlId="floatingInput"
             label="Name"
@@ -54,16 +72,17 @@ function CheckoutForm({ sendOrder }) {
               required
               type="text"
               placeholder="Name"
-              name="name"
-              onChange={handleInputChange}
+              value={form.name}
+              onChange={(e) => handleInputChange("name", e.target.value)}
+              isInvalid={!!errors.name}
             />
             <Form.Control.Feedback type="invalid">
-              Name is required.
+              {errors.name}
             </Form.Control.Feedback>
           </FloatingLabel>
         </Form.Group>
 
-        <Form.Group className="mb-3" controlId="formBasicEmail">
+        <Form.Group className="mb-3" controlId="phone">
           <FloatingLabel
             controlId="floatingInput"
             label="Phone"
@@ -71,19 +90,19 @@ function CheckoutForm({ sendOrder }) {
           >
             <Form.Control
               required
-              pattern="[0-9]+"
               type="text"
               placeholder="Phone"
-              name="phone"
-              onChange={handleInputChange}
+              value={form.phone}
+              onChange={(e) => handleInputChange("phone", e.target.value)}
+              isInvalid={!!errors.phone}
             />
             <Form.Control.Feedback type="invalid">
-              Please enter a 9 digit phone number
+              {errors.phone}
             </Form.Control.Feedback>
           </FloatingLabel>
         </Form.Group>
 
-        <Form.Group className="mb-3" controlId="formBasicEmail">
+        <Form.Group className="mb-3" controlId="email">
           <FloatingLabel
             controlId="floatingInput"
             label="Email address"
@@ -93,16 +112,17 @@ function CheckoutForm({ sendOrder }) {
               required
               type="email"
               placeholder="Email address"
-              name="email"
-              onChange={handleInputChange}
+              value={form.email}
+              onChange={(e) => handleInputChange("email", e.target.value)}
+              isInvalid={!!errors.email}
             />
             <Form.Control.Feedback type="invalid">
-              Please enter a valid email address
+              {errors.email}
             </Form.Control.Feedback>
           </FloatingLabel>
         </Form.Group>
 
-        <Form.Group className="mb-3" controlId="formBasicEmail">
+        <Form.Group className="mb-3" controlId="email2">
           <FloatingLabel
             controlId="floatingInput"
             label="Repeat Email address"
@@ -112,9 +132,12 @@ function CheckoutForm({ sendOrder }) {
               required
               type="email"
               placeholder="Repeat Email address"
+              value={form.email2}
+              onChange={(e) => handleInputChange("email2", e.target.value)}
+              isInvalid={!!errors.email2}
             />
             <Form.Control.Feedback type="invalid">
-              Email addresses don't match
+              {errors.email2}
             </Form.Control.Feedback>
           </FloatingLabel>
         </Form.Group>
@@ -126,7 +149,12 @@ function CheckoutForm({ sendOrder }) {
             label="I would like to receive exclusive promotions, the latest news and personalised information adapted to my customer profile."
           />
         </Form.Group>
-        <button type="submit" className="btn-gral btn-white mt-4">
+
+        <button
+          type="submit"
+          onClick={handleSubmit}
+          className="btn-gral btn-white mt-4"
+        >
           Finish purchase
         </button>
       </Form>

@@ -1,4 +1,5 @@
 // React
+import { useEffect } from "react";
 import { useState } from "react";
 import { useCartContext } from "../../context/CartContext";
 // Components
@@ -11,13 +12,17 @@ function ItemDetail({ item }) {
   
   const [btnShown, setBtnShown] = useState('counter')
 
-  const {addToCart} = useCartContext()
+  const { addToCart, stockPre, stockPreview } = useCartContext()
   
   const onAdd = (quantity) => {
-      addToCart({...item, quantity}) 
-      setBtnShown('buttons')
+    addToCart({...item, quantity}) 
+    setBtnShown('buttons')
   }
-
+  
+  useEffect(()=>{
+    stockPre(item)
+  })
+  
   return (
     <div className="container detail-cont">
       <div className="img-cont">
@@ -32,8 +37,9 @@ function ItemDetail({ item }) {
         <p className="f-smaller mt-5 ff-secondary">{item.description}</p>
         <p className="f-smaller ff-secondary">Color: <span className="text-uppercase">{item.color}</span></p>
         <hr />
+        {stockPreview > 0 && <p className="text-secondary text-center">{stockPreview} products available</p>}
         <h5 className="f-color text-center">€ {item.price}</h5>
-        { btnShown === 'counter' ? <ItemCount stock={item.stock} initial={1} onAdd={onAdd}/> : <Buttons/>}
+        { btnShown === 'counter' ? <ItemCount stock={stockPreview} initial={0} onAdd={onAdd}/> : <Buttons/>}
       </div>
     </div>
   );

@@ -14,7 +14,7 @@ const Hero = () => {
         <Carousel.Caption className="text-light ">
           <h1 className="ff-accent hero-title">NEW</h1>
           <h1 className="ff-accent hero-title">IN</h1>
-          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+          <p>Discover the new collection.</p>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item className="hero-height">

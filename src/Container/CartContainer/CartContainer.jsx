@@ -8,7 +8,7 @@ import "./CartContainer.css";
 import { Link } from "react-router-dom";
 
 function CartContainer() {
-  const { cartList, clearCart, totalItems, orderID } = useCartContext();
+  const { cartList, clearCart, totalItems, orderID, resetOrder } = useCartContext();
 
   if (cartList.length === 0) {
     if (orderID) {
@@ -17,7 +17,7 @@ function CartContainer() {
           <p className="fs-5 fw-bold ">Thank you for your purchase!</p>
           <p className="f-smaller">Order number: {orderID}</p>
           <Link to="/" className="link">
-            <button className="btn-gral btn-color w-auto mt-3 px-5 fw-bold">
+            <button className="btn-gral btn-color w-auto mt-3 px-5 fw-bold" onClick={resetOrder}>
               Back to homepage
             </button>
           </Link>
@@ -26,6 +26,8 @@ function CartContainer() {
     }
     return (
       <div className="container text-center vh-100 d-flex flex-column justify-content-center p-5 ff-secondary">
+        {/* {orderID && <p className="fs-5 fw-bold ">Thank you for your purchase!</p>}
+        {orderID && <p className="f-smaller">Order number: {orderID}</p>} */}
         <p className="fs-5 fw-bold ">Your shopping bag is empty.</p>
         <p className="f-smaller">
           Be inspired and discover something new to renew your wardrobe.

@@ -1,9 +1,10 @@
 // React
 import { useState } from "react";
+import Buttons from "../Buttons/Buttons";
 // Styles
 import "./ItemCount.css";
 
-const ItemCount = ({ stock, initial, onAdd}) => {
+const ItemCount = ({ stock, initial, onAdd }) => {
   const [quantity, setQuantity] = useState(initial);
 
   const add = () => {
@@ -18,6 +19,17 @@ const ItemCount = ({ stock, initial, onAdd}) => {
     onAdd(quantity);
   };
 
+  if (stock <= 0) {
+    return (
+      <div>
+        <p className="mt-3 text-center f-color">
+          No more stock available. <br/> Check for similar products!
+        </p>
+        <Buttons></Buttons>
+      </div>
+    );
+  }
+
   return (
     <div className="d-flex justify-content-center align-items-center py-2 f-color">
       <button className="btn-count" onClick={substract}>
@@ -27,7 +39,11 @@ const ItemCount = ({ stock, initial, onAdd}) => {
       <button className="btn-count" onClick={add}>
         +
       </button>
-      <button className="ms-4 btn-add" onClick={addToCart}>
+      <button
+        className="ms-4 btn-add"
+        onClick={addToCart}
+        disabled={stock <= 0}
+      >
         ADD
       </button>
     </div>
