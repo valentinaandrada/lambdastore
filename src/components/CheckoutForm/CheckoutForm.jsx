@@ -43,7 +43,7 @@ function CheckoutForm({ sendOrder }) {
     else if (email.length < 3 || !/\S+@\S+\.\S+/.test(email))
       newErrors.email = "Please enter a valid email address";
 
-    if (!email2 || email2 === "") newErrors.email2 = "Please enter your email2";
+    if (!email2 || email2 === "") newErrors.email2 = "Please repeat email";
     else if (email2 !== email) newErrors.email2 = "Email addresses must match";
 
     return newErrors;
