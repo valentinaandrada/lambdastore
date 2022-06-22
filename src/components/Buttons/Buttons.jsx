@@ -7,7 +7,7 @@ function Buttons() {
       <Link to="/" className="link">
         <button className="btn-gral btn-color">CONTINUE SHOPPING</button>
       </Link>
-      <Link to='/cart' className="link">
+      <Link to="/cart" className="link">
         <button className="btn-gral btn-white">CHECKOUT</button>
       </Link>
     </div>

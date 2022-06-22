@@ -2,7 +2,6 @@
 import { Link, NavLink } from "react-router-dom";
 // Components
 import { CartWidget } from "../CartWidget/CartWidget";
-
 // Styles
 import Navbar from "react-bootstrap/Navbar";
 import Container from "react-bootstrap/Container";

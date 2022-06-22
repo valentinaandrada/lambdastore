@@ -1,5 +1,6 @@
 // React
 import { useState } from "react";
+// Components
 import Buttons from "../Buttons/Buttons";
 // Styles
 import "./ItemCount.css";
@@ -23,7 +24,7 @@ const ItemCount = ({ stock, initial, onAdd }) => {
     return (
       <div>
         <p className="mt-3 text-center f-color">
-          No more stock available. <br/> Check for similar products!
+          No more stock available. <br /> Check for similar products!
         </p>
         <Buttons></Buttons>
       </div>

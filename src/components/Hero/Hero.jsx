@@ -5,10 +5,14 @@ const Hero = () => {
   return (
     <Carousel variant="dark">
       <Carousel.Item className="hero-height">
-        <img className="d-md-none w-100" src='../assets/img/00_hero-mobile.jpg' alt="First slide" />
+        <img
+          className="d-md-none w-100"
+          src="../assets/img/00_hero-mobile.jpg"
+          alt="First slide"
+        />
         <img
           className="d-none d-md-block w-100"
-          src='../assets/img/00_hero-desktop.jpg'
+          src="../assets/img/00_hero-desktop.jpg"
           alt="First slide"
         />
         <Carousel.Caption className="text-light ">
@@ -18,10 +22,14 @@ const Hero = () => {
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item className="hero-height">
-        <img className="d-md-none w-100" src='../assets/img/01_hero-mobile.jpg' alt="Second slide" />
+        <img
+          className="d-md-none w-100"
+          src="../assets/img/01_hero-mobile.jpg"
+          alt="Second slide"
+        />
         <img
           className="d-none d-md-block w-100"
-          src='../assets/img/01_hero-desktop.jpg'
+          src="../assets/img/01_hero-desktop.jpg"
           alt="Second slide"
         />
         <Carousel.Caption className="text-light">
@@ -31,10 +39,14 @@ const Hero = () => {
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item className="hero-height">
-        <img className="d-md-none w-100" src='../assets/img/02_hero-mobile.jpg' alt="Third slide" />
+        <img
+          className="d-md-none w-100"
+          src="../assets/img/02_hero-mobile.jpg"
+          alt="Third slide"
+        />
         <img
           className="d-none d-md-block w-100"
-          src='../assets/img/02_hero-desktop.jpg'
+          src="../assets/img/02_hero-desktop.jpg"
           alt="Third slide"
         />
         <Carousel.Caption className="text-light">

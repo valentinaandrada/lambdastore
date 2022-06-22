@@ -24,36 +24,34 @@ export const ListItemContainer = () => {
     const queryCollection = collection(db, "products");
 
     if (cat) {
-        const queryCollectionFilterByCategory = query(
-          queryCollection,
-          where("category", "==", cat)
-        );
-        getDocs(queryCollectionFilterByCategory)
-          .then((resp) =>
-            setItems(resp.docs.map((item) => ({ id: item.id, ...item.data() })))
-          )
-          .catch((err) => console.log(err))
-          .finally(() => setLoader(false));
+      const queryCollectionFilterByCategory = query(
+        queryCollection,
+        where("category", "==", cat)
+      );
+      getDocs(queryCollectionFilterByCategory)
+        .then((resp) =>
+          setItems(resp.docs.map((item) => ({ id: item.id, ...item.data() })))
+        )
+        .catch((err) => console.log(err))
+        .finally(() => setLoader(false));
     } else {
-        getDocs(queryCollection)
-          .then((resp) =>
-            setItems(resp.docs.map((item) => ({ id: item.id, ...item.data() })))
-          )
-          .catch((err) => console.log(err))
-          .finally(() => setLoader(false));
+      getDocs(queryCollection)
+        .then((resp) =>
+          setItems(resp.docs.map((item) => ({ id: item.id, ...item.data() })))
+        )
+        .catch((err) => console.log(err))
+        .finally(() => setLoader(false));
     }
   }, [cat]);
 
   return (
-
-      <div className="section-container">
-        {loader ? (
-          <div className="loader"></div>
-        ) : (
-          <ItemList items={items}></ItemList>
-        )}
-      </div>
-
+    <div className="section-container">
+      {loader ? (
+        <div className="loader"></div>
+      ) : (
+        <ItemList items={items}></ItemList>
+      )}
+    </div>
   );
 };
 

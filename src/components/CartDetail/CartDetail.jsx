@@ -1,10 +1,11 @@
 // Context
 import { useCartContext } from "../../context/CartContext";
+// Components
+import CheckoutForm from "../CheckoutForm/CheckoutForm";
 // Styles
+import "./CartDetail.css";
 import { MdOutlineLocalShipping } from "react-icons/md";
 import { BsArrowCounterclockwise, BsBagCheck } from "react-icons/bs";
-import "./CartDetail.css";
-import CheckoutForm from "../CheckoutForm/CheckoutForm";
 
 function CartDetail() {
   const { totalAmount, createOrder } = useCartContext();

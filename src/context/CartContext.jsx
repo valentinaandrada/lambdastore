@@ -19,14 +19,14 @@ const CartContextProvider = ({ children }) => {
   const [totalItems, setTotalItems] = useState(0);
   const [totalAmount, setTotalAmount] = useState(0);
   const [orderID, setOrderID] = useState();
-  const [stockPreview, setStockPreview] = useState(0)
+  const [stockPreview, setStockPreview] = useState(0);
 
   function isInCart(id) {
     return cartList.some((item) => item.id === id);
   }
 
   function stockPre(item) {
-      setStockPreview(item.stock - totalItems)
+    setStockPreview(item.stock - totalItems);
   }
 
   function addToCart(item) {
@@ -39,7 +39,6 @@ const CartContextProvider = ({ children }) => {
       updateCart([...cartList, item]);
     }
   }
-
 
   function clearCart() {
     updateCart([]);
@@ -68,9 +67,8 @@ const CartContextProvider = ({ children }) => {
   }
 
   function resetOrder() {
-    setOrderID(undefined)
+    setOrderID(undefined);
   }
-
 
   async function createOrder(customer) {
     let order = {};
@@ -134,7 +132,7 @@ const CartContextProvider = ({ children }) => {
         orderID,
         resetOrder,
         stockPre,
-        stockPreview
+        stockPreview,
       }}
     >
       {children}

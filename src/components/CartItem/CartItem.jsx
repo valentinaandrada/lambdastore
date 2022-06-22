@@ -5,8 +5,7 @@ import { useCartContext } from "../../context/CartContext";
 // Styles
 import "./CartItem.css";
 
-function CartItem({ item, quantity}) {
-
+function CartItem({ item, quantity }) {
   const { removeItem } = useCartContext();
 
   return (
@@ -24,7 +23,7 @@ function CartItem({ item, quantity}) {
           <p>{(item.price * quantity).toFixed(2)} EUR</p>
           <button
             className="bg-transparent text-secondary border-0 mt-4"
-            onClick={()=> removeItem(item, quantity)}
+            onClick={() => removeItem(item, quantity)}
           >
             Remove
           </button>

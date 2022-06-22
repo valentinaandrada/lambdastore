@@ -1,11 +1,10 @@
 .cart-detail {
-    background-color: rgba(245, 244, 244, 0.444);
-    height: fit-content;
+  background-color: rgba(245, 244, 244, 0.444);
+  height: fit-content;
 }
 
 @media screen and (min-width: 960px) {
-
-    .cart-detail {
-        width: 35%;
-    }
+  .cart-detail {
+    width: 35%;
+  }
 }
