@@ -28,31 +28,35 @@ const NavBar = () => {
                 <NavDropdown.Header className="w-100">
                   CLOTHING
                 </NavDropdown.Header>
-                <NavDropdown.Item href="/category/dresses">
-                  Dresses
-                </NavDropdown.Item>
-                <NavDropdown.Item href="/category/shirts">
-                  Shirts
-                </NavDropdown.Item>
-                <NavDropdown.Item href="/category/sweaters">
-                  Sweaters
-                </NavDropdown.Item>
-                <NavDropdown.Item href="/category/coats">
-                  Coats
-                </NavDropdown.Item>
-                <NavDropdown.Item href="/category/denim">
-                  Denim
-                </NavDropdown.Item>
-                <NavDropdown.Item href="/category/skirts">
-                  Skirts
-                </NavDropdown.Item>
+                <div className="d-flex flex-column">
+                  <NavLink to="/category/dresses" className="link ps-3 pb-2">
+                    Dresses
+                  </NavLink>
+                  <NavLink to="/category/shirts" className="link ps-3 pb-2">
+                    Shirts
+                  </NavLink>
+                  <NavLink to="/category/sweaters" className="link ps-3 pb-2">
+                    Sweaters
+                  </NavLink>
+                  <NavLink to="/category/coats" className="link ps-3 pb-2">
+                    Coats
+                  </NavLink>
+                  <NavLink to="/category/denim" className="link ps-3 pb-2">
+                    Denim
+                  </NavLink>
+                  <NavLink to="/category/skirts" className="link ps-3 pb-2">
+                    Skirts
+                  </NavLink>
+                </div>
                 <NavDropdown.Header>ACCESORIES</NavDropdown.Header>
-                <NavDropdown.Item href="/category/earrings">
-                  Earrings
-                </NavDropdown.Item>
-                <NavDropdown.Item href="/category/necklaces">
-                  Necklaces
-                </NavDropdown.Item>
+                <div className="d-flex flex-column">
+                  <NavLink to="/category/earrings" className="link ps-3 pb-2">
+                    Earrings
+                  </NavLink>
+                  <NavLink to="/category/necklaces" className="link ps-3 pb-2">
+                    Necklaces
+                  </NavLink>
+                </div>
               </NavDropdown>
             </Nav>
           </Col>
