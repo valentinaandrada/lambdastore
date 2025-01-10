@@ -3,7 +3,7 @@ import Carousel from "react-bootstrap/Carousel";
 
 const Hero = () => {
   return (
-    <Carousel variant="dark">
+    <Carousel variant="dark hero-height">
       <Carousel.Item className="hero-height">
         <img
           className="d-md-none w-100"

@@ -3,72 +3,68 @@ import { Link, NavLink } from "react-router-dom";
 // Components
 import { CartWidget } from "../CartWidget/CartWidget";
 // Styles
+import './NavBar.css';
 import Navbar from "react-bootstrap/Navbar";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import NavDropdown from "react-bootstrap/NavDropdown";
-import Col from "react-bootstrap/Col";
 
 const NavBar = () => {
   return (
-    <Navbar expand="lg" fixed="top" className="py-3 mt-3">
-      <Container>
-        <Col className="d-flex align-items-center">
-          <Link to="/" className="link">
-            <Navbar.Brand className="fs-1 fw-bold">⨇</Navbar.Brand>
-          </Link>
-          <Col className="d-none d-lg-flex">
-            <Nav className="me-auto">
-              <Nav.Item className="py-2">
-                <NavLink to="/" className="link">
-                  HOME
-                </NavLink>
-              </Nav.Item>
-              <NavDropdown title="SHOP" id="nav-dropdown" menuVariant="light">
-                <NavDropdown.Header className="w-100">
-                  CLOTHING
-                </NavDropdown.Header>
-                <div className="d-flex flex-column">
-                  <NavLink to="/category/dresses" className="link ps-3 pb-2">
-                    Dresses
-                  </NavLink>
-                  <NavLink to="/category/shirts" className="link ps-3 pb-2">
-                    Shirts
-                  </NavLink>
-                  <NavLink to="/category/sweaters" className="link ps-3 pb-2">
-                    Sweaters
-                  </NavLink>
-                  <NavLink to="/category/coats" className="link ps-3 pb-2">
-                    Coats
-                  </NavLink>
-                  <NavLink to="/category/denim" className="link ps-3 pb-2">
-                    Denim
-                  </NavLink>
-                  <NavLink to="/category/skirts" className="link ps-3 pb-2">
-                    Skirts
-                  </NavLink>
-                </div>
-                <NavDropdown.Header>ACCESORIES</NavDropdown.Header>
-                <div className="d-flex flex-column">
-                  <NavLink to="/category/earrings" className="link ps-3 pb-2">
-                    Earrings
-                  </NavLink>
-                  <NavLink to="/category/necklaces" className="link ps-3 pb-2">
-                    Necklaces
-                  </NavLink>
-                </div>
-              </NavDropdown>
-            </Nav>
-          </Col>
-        </Col>
-        <Col className="d-flex justify-content-end">
+    <Navbar sticky="top" className="bg-white">
+      <Container className="align-items-center">
+        <Navbar.Brand as={Link} to="/">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 50 50"
+            width="50"
+            height="50"
+          >
+            <text
+              x="50%"
+              y="50%"
+              dominant-baseline="middle"
+              text-anchor="middle"
+              font-size="40"
+              font-family="Arial, sans-serif"
+            >
+              ⨇
+            </text>
+          </svg>
+        </Navbar.Brand>
+        <Nav>
+          <NavDropdown title="SHOP" id="basic-nav-dropdown" className="custom-dropdown">
+            <NavDropdown.Item as={NavLink} to="/category/dresses" className="custom-item">
+              Dresses
+            </NavDropdown.Item>
+            <NavDropdown.Item as={NavLink} to="/category/shirts" className="custom-item">
+              Shirts
+            </NavDropdown.Item>
+            <NavDropdown.Item as={NavLink} to="/category/sweaters" className="custom-item">
+              Sweaters
+            </NavDropdown.Item>
+            <NavDropdown.Item as={NavLink} to="/category/coats" className="custom-item">
+              Coats
+            </NavDropdown.Item>
+            <NavDropdown.Item as={NavLink} to="/category/denim" className="custom-item">
+              Denim
+            </NavDropdown.Item>
+            <NavDropdown.Item as={NavLink} to="/category/skirts" className="custom-item">
+              Skirts
+            </NavDropdown.Item>
+            <NavDropdown.Divider />
+            <NavDropdown.Item as={NavLink} to="/category/earrings" className="custom-item">
+              Earrings
+            </NavDropdown.Item>
+            <NavDropdown.Item as={NavLink} to="/category/necklaces" className="custom-item">
+              Necklaces
+            </NavDropdown.Item>
+          </NavDropdown>
+        </Nav>
+
+        <Nav className="ms-auto">
           <CartWidget />
-          <Navbar.Toggle
-            id="nav-btn"
-            aria-controls="basic-navbar-nav"
-            className="d-lg-none border-0"
-          />
-        </Col>
+        </Nav>
       </Container>
     </Navbar>
   );

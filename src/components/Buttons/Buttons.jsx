@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 function Buttons() {
   return (
-    <div className="btns">
+    <div className="d-flex gap-2 justify-content-center">
       <Link to="/" className="link">
         <button className="btn-gral btn-color">CONTINUE SHOPPING</button>
       </Link>

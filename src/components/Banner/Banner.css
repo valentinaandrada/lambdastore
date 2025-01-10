@@ -1,22 +1,5 @@
 .banner {
-  background-color: rgb(255, 255, 255);
-  color: rgb(106, 106, 106);
-}
-.txt-anim {
-  position: absolute;
-  right: 0;
-  width: 100;
-  height: 1.2rem;
-  background-color: rgb(255, 255, 255);
-  animation: writing 8s infinite;
-  animation-direction: alternate-reverse;
-}
-
-@keyframes writing {
-  from {
-    width: 100%;
-  }
-  to {
-    width: 0%;
-  }
+  background-color: var(--color-accent);
+  color: var(--color-white);
+  height: fit-content;
 }

@@ -46,16 +46,19 @@ function CartContainer() {
 
   return (
     <div className="container cart-cont ff-primary">
-      <div>
+      <div className="cart-cont-sec">
         <p className="fs-5 mb-4">
           SHOPPING BAG <span className="text-secondary">({totalItems})</span>{" "}
         </p>
         <CartList />
-        <button onClick={clearCart} className="btn-gral btn-white">
+        <button onClick={clearCart} className="btn-white">
           Clear Cart
         </button>
       </div>
+      <div className="cart-cont-sec">
+
       <CartDetail />
+      </div>
     </div>
   );
 }

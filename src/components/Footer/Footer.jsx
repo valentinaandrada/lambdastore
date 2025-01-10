@@ -4,10 +4,10 @@ import { MdLocalShipping } from "react-icons/md";
 
 function Footer() {
   return (
-    <div className="border-top">
-      <div className="d-flex mt-5 justify-content-evenly">
-        <div className="p-5 text-center">
-          <BsCreditCard size={50} color="#c2a18a" />
+    <div>
+      <div className="d-flex flex-column flex-md-row mt-4 py-4 justify-content-evenly bg-light">
+        <div className="p-2 text-center ">
+          <BsCreditCard size={50} color="#8D0B41" />
           <p className="text-uppercase fw-bold ff-secondary pt-3 mb-1">
             Payment methods
           </p>
@@ -15,8 +15,8 @@ function Footer() {
             Choose from different payment methods
           </p>
         </div>
-        <div className="p-5 text-center">
-          <MdLocalShipping size={50} color="#c2a18a" />
+        <div className="p-2 text-center">
+          <MdLocalShipping size={50} color="#8D0B41" />
           <p className="text-uppercase fw-bold ff-secondary pt-3 mb-1">
             SHIPPING
           </p>
@@ -24,8 +24,8 @@ function Footer() {
             Standard delivery from 2 to 4 working days
           </p>
         </div>
-        <div className="p-5 text-center">
-          <BsArrowCounterclockwise size={50} color="#c2a18a" />
+        <div className="p-2 text-center">
+          <BsArrowCounterclockwise size={50} color="#8D0B41" />
           <p className="text-uppercase fw-bold ff-secondary pt-3 mb-1">
             Returns
           </p>
@@ -34,8 +34,7 @@ function Footer() {
           </p>
         </div>
       </div>
-
-      <div className="f-smaller ff-secondary text-center mt-5">
+      <div className="f-smaller ff-secondary text-center my-3">
         <p className="mb-2">© 2022 LAMBDA All rights reserved</p>
         <p>
           {" "}

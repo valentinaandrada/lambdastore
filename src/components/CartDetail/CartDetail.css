@@ -2,9 +2,3 @@
   background-color: rgba(245, 244, 244, 0.444);
   height: fit-content;
 }
-
-@media screen and (min-width: 960px) {
-  .cart-detail {
-    width: 35%;
-  }
-}

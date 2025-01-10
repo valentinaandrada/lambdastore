@@ -1,0 +1,19 @@
+
+
+  /* Dropdown button (title) */
+  .custom-dropdown .dropdown-menu {
+    width: 200px;
+    color: var(--color-primary);
+    border-radius: 12px; 
+  }
+
+  /* Dropdown menu items */
+  .custom-item {
+    font-size: 1rem;
+  }
+  
+  .custom-item:hover {
+    background-color: var(--color-primary); 
+    color: var(--color-white); 
+  }
+  

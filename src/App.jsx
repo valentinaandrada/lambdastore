@@ -1,5 +1,5 @@
 import "./App.css";
-import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/css/bootstrap.css";
 
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import CartContextProvider from "./context/CartContext";
@@ -16,11 +16,11 @@ function App() {
   return (
     <BrowserRouter>
       <CartContextProvider>
-        <div className="App ff-primary">
+        <div className="App ff-primary ">
+          <NavBar />
           <Banner
             message={`Welcome to LAMBDA store! Free delivery from 40 EUR - Returns extended to 60 days`}
           />
-          <NavBar />
           <Routes>
             <Route
               path="/"
@@ -51,7 +51,15 @@ function App() {
                 </div>
               }
             />
-            <Route path="/cart" element={<CartContainer />} />
+            <Route
+              path="/cart"
+              element={
+                <div>
+                  <CartContainer />
+                  <Footer />
+                </div>
+              }
+            />
             <Route path="/*" element={<Navigate to="/" replace />} />
           </Routes>
         </div>

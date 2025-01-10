@@ -19,8 +19,8 @@ function CartItem({ item, quantity }) {
           <p>REF-{item.ref}</p>
         </div>
         <div>
-          <p>{quantity > 1 && `${item.quantity} X ${item.price} EUR`}</p>
-          <p>{(item.price * quantity).toFixed(2)} EUR</p>
+          <p>{quantity > 1 && `${item.quantity} x € ${item.price}`}</p>
+          <p>€ {(item.price * quantity).toFixed(2)}</p>
           <button
             className="bg-transparent text-secondary border-0 mt-4"
             onClick={() => removeItem(item, quantity)}

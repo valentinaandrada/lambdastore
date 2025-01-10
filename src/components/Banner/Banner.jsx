@@ -3,10 +3,9 @@ import "./Banner.css";
 
 function Banner({ message }) {
   return (
-    <div className="banner">
-      <p className="text-uppercase text-center mb-0 f-smaller py-1">
+    <div className="banner py-2 d-flex justify-content-center align-items-center">
+      <p className="mb-0 text-uppercase text-center f-smaller ">
         {message}
-        <span className="txt-anim"></span>
       </p>
     </div>
   );

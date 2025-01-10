@@ -16,7 +16,7 @@ export const CartWidget = (showCart) => {
         </button>
       </Link>
       {totalItems !== 0 && (
-        <p className="cart-qty text-center f-color ms-3 ps-4 fw-bold">
+        <p className="cart-qty text-center f-color-accent ms-3 ps-4 fw-bold">
           {totalItems}
         </p>
       )}
